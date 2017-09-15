@@ -5,19 +5,21 @@ import router from './../router'
 export default class AuthService {
   authenticated = this.isAuthenticated()
   authNotifier = new EventEmitter()
+  profileName = this.getName();
   auth0 = new auth0.WebAuth({
     domain: 'briangoncalvessample.auth0.com',
     clientID: '7aIbQB6p0LTDCaaVar0KCW2KjJwxuGGo',
-    redirectUri: 'http://localhost:8080/callback',
+    redirectUri: 'http://localhost:8080/callback/',
     audience: 'https://briangoncalvessample.auth0.com/userinfo',
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid profile'
   });
   constructor () {
     this.login = this.login.bind(this)
     this.setSession = this.setSession.bind(this)
     this.logout = this.logout.bind(this)
     this.isAuthenticated = this.isAuthenticated.bind(this)
+    this.getName = this.getName.bind(this)
   }
   handleAuthentication () {
     this.auth0.parseHash((err, authResult) => {
@@ -38,14 +40,15 @@ export default class AuthService {
     localStorage.setItem('access_token', authResult.accessToken)
     localStorage.setItem('id_token', authResult.idToken)
     localStorage.setItem('expires_at', expiresAt)
-    this.authNotifier.emit('authChange', { authenticated: true })
+    localStorage.setItem('profile_name', authResult.idTokenPayload.name)
+    this.authNotifier.emit('authChange', { authenticated: true, profileName: authResult.idTokenPayload.name })
   }
   logout () {
     // Clear access token and ID token from local storage
     localStorage.removeItem('access_token')
     localStorage.removeItem('id_token')
     localStorage.removeItem('expires_at')
-    this.userProfile = null
+    localStorage.removeItem('profile_name')
     this.authNotifier.emit('authChange', false)
     // navigate to the home route
     router.replace('home')
@@ -58,5 +61,9 @@ export default class AuthService {
   }
   login () {
     this.auth0.authorize()
+  }
+  getName () {
+    let name = localStorage.getItem('profile_name')
+    return name
   }
 }

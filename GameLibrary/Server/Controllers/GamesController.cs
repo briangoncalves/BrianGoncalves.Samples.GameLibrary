@@ -44,14 +44,14 @@ namespace Server.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] Models.Game item)
         {
-            if (item == null)
+            if (item == null || String.IsNullOrEmpty(item.Name))
             {
                 return BadRequest();
             }
 
             _context.Games.Add(item);
             _context.SaveChanges();
-
+            
             return CreatedAtRoute("GetGame", new { id = item.Id }, item);
         }
 

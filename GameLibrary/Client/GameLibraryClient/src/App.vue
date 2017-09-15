@@ -4,43 +4,25 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Game Library App</a>
-          <!--<router-link :to="'/'"
-                       class="btn btn-primary btn-margin">
-            Home
-          </router-link>
-
-          <button class="btn btn-primary btn-margin"
-                  v-if="!authenticated"
-                  @click="login()">
-            Log In
-          </button>
-          <button class="btn btn-primary btn-margin"
-                  v-if="authenticated"
-                  :to="'/games'">
-            Games
-          </button>
-
-          <button class="btn btn-primary btn-margin"
-                  v-if="authenticated"
-                  @click="logout()">
-            Log Out
-          </button>-->
           </div>
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav nav">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <router-link to="/">Home</router-link>
               </li>
               <li class="nav-item">
-                <a v-if="!authenticated" @click="login()">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" v-if="authenticated" href="/games">Games</a>
-              </li>
-              <li class="nav-item">
-                <span class="nav-link" v-if="authenticated" @click="logout()" href="#">Logout</span>
-              </li>
+                <router-link v-if="authenticated" to="/games">Games</router-link>
+              </li>              
             </ul>            
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item" v-if="authenticated"><a>Welcome {{profileName}}</a></li>
+              <li class="nav-item">
+                <a class="nav-link" v-if="authenticated" style="cursor: pointer;font-weight:bold;" @click="logout()">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" v-if="!authenticated" style="cursor: pointer;font-weight:bold;" @click="login()">Login</a>
+              </li>
+            </ul>
           </div>          
         </div>
     </nav>
@@ -55,21 +37,24 @@
 
 <script>
   import 'jquery'
-  import 'auth0-js'
   import 'bootstrap'
   import 'bootstrap/dist/css/bootstrap.min.css'
   import AuthService from './auth/AuthService'
   const auth = new AuthService()
-  const { login, logout, authenticated, authNotifier } = auth
+  const { login, logout, authenticated, authNotifier, profileName } = auth
   export default {
     name: 'app',
     data () {
+      this.profileName = profileName
+      this.authenticated = authenticated
       authNotifier.on('authChange', authState => {
+        this.profileName = authState.profileName
         this.authenticated = authState.authenticated
       })
       return {
         auth,
-        authenticated
+        authenticated,
+        profileName
       }
     },
     methods: {
