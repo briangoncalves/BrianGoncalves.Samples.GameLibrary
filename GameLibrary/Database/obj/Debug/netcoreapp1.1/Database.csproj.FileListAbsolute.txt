@@ -1,0 +1,9 @@
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\bin\Debug\netcoreapp1.1\Database.deps.json
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\bin\Debug\netcoreapp1.1\Database.dll
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\obj\Debug\netcoreapp1.1\Database.AssemblyInfo.cs
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\obj\Debug\netcoreapp1.1\Database.csprojResolveAssemblyReference.cache
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\bin\Debug\netcoreapp1.1\Database.pdb
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\bin\Debug\netcoreapp1.1\Models.dll
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\bin\Debug\netcoreapp1.1\Models.pdb
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\obj\Debug\netcoreapp1.1\Database.dll
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Database\obj\Debug\netcoreapp1.1\Database.pdb

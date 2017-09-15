@@ -1,0 +1,11 @@
+- Create a database on postgresql called GameLibrary
+- Create the following table on the database:
+CREATE TABLE "Games"(
+	"Id" Serial,
+    "Name" varchar,
+    "Publisher" varchar,
+    "Category" varchar,
+    "CreatedOn" timestamp
+)
+
+- Configure the connection string on the appsettings.json on the folder GameLibrary\Server
