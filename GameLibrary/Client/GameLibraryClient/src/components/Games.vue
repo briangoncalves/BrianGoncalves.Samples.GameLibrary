@@ -30,7 +30,10 @@
 import { HTTP } from '../http/http-common'
 export default {
   name: 'games',
+  props: ['auth'],
   data () {
+    this.authenticated = this.auth.isAuthenticated()
+    if (!this.authenticated) this.$router.push('home')
     HTTP.get('games')
       .then(response => {
         this.games = response.data

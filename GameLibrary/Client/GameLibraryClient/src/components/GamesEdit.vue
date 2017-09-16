@@ -4,15 +4,26 @@
     <h1 v-if="game.Id <= 0">Add a new game:</h1>
 
     <div class="well well-sm">
-      <div class="form-group">
-        <label for="txtName">Name:</label><input class="form-control" id="txtName" name="txtName" v-model="game.Name" type="text" />
-      </div>
-      <div class="form-group">
-        <label for="txtPublisher">Publisher:</label><input class="form-control" id="txtPublisher" name="txtPublisher" v-model="game.Publisher" type="text" />
-      </div> 
-      <div class="form-group">
-        <label for="txtCategory">Category:</label><input class="form-control" id="txtCategory" name="txtCategory" v-model="game.Category" type="text" />
-      </div> 
+      <form data-toggle="validator" id="frmEdit">
+        <div class="form-group">
+          <label for="txtName">Name:</label>
+          <input class="form-control" id="txtName" name="txtName" v-model="game.Name" type="text" 
+                 required data-error="Please provide the name of the game"/>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label for="txtPublisher">Publisher:</label>
+          <input class="form-control" id="txtPublisher" name="txtPublisher" v-model="game.Publisher" type="text" 
+                 required data-error="Please provide the publisher of the game"/>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label for="txtCategory">Category:</label>
+          <input class="form-control" id="txtCategory" name="txtCategory" v-model="game.Category" type="text" 
+                 required data-error="Please provide the category of the game"/>
+          <div class="help-block with-errors"></div>
+        </div>        
+      </form>
     </div>
       <button type="button" class="btn btn-success btn-sm" @click="Save">
         Save
@@ -25,10 +36,16 @@
   </div>
 </template>
 <script>
-import {HTTP} from '../http/http-common'
+import 'jquery'
+import 'bootstrap'
+import 'bootstrap-validator'
+import { HTTP } from '../http/http-common'
 export default {
   name: 'gamesEdit',
+  props: ['auth'],
   data () {
+    this.authenticated = this.auth.isAuthenticated()
+    if (!this.authenticated) this.$router.push('games')
     if (this.$route.params.Id > 0) {
       HTTP.get('games/' + this.$route.params.Id)
         .then(response => {
@@ -44,6 +61,10 @@ export default {
     Save () {
       var vm = this
       var data = {}
+      $('#frmEdit').validator('validate')
+      if ($('#frmEdit').has('.has-error')) {
+        return
+      }
       if (this.game.Id > 0) {
         data = {
           Name: this.game.Name,

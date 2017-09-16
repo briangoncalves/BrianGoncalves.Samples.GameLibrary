@@ -19,7 +19,10 @@
 import { HTTP } from '../http/http-common'
 export default {
   name: 'gamesDelete',
+  props: ['auth'],
   data () {
+    this.authenticated = this.auth.isAuthenticated()
+    if (!this.authenticated) this.$router.push('home')
     HTTP.get('games/' + this.$route.params.Id)
       .then(response => {
         this.game = response.data

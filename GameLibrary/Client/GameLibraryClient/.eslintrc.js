@@ -1,4 +1,4 @@
-// http://eslint.org/docs/user-guide/configuring
+﻿// http://eslint.org/docs/user-guide/configuring
 
 module.exports = {
   root: true,
@@ -8,6 +8,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    "jquery": true
   },
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: 'standard',
