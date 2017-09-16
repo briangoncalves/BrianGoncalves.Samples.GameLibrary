@@ -1,0 +1,17 @@
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\libhostpolicy.so
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\libhostfxr.so
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Server
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.deps.json
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.runtimeconfig.json
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.runtimeconfig.dev.json
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.dll
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.pdb
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Database.dll
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Models.dll
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Database.pdb
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\bin\Release\netcoreapp1.1\ubuntu.16.04-x64\Models.pdb
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\obj\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.csproj.CoreCompileInputs.cache
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\obj\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.AssemblyInfoInputs.cache
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\obj\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.AssemblyInfo.cs
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\obj\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.dll
+C:\Users\brian\Source\Repos\BrianGoncalves.Samples.GameLibrary\BrianGoncalves.Samples.GameLibrary\GameLibrary\Server\obj\Release\netcoreapp1.1\ubuntu.16.04-x64\Server.pdb

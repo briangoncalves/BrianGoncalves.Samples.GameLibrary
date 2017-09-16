@@ -10,7 +10,7 @@ export default class AuthService {
     domain: 'briangoncalvessample.auth0.com',
     clientID: '7aIbQB6p0LTDCaaVar0KCW2KjJwxuGGo',
     redirectUri: 'http://localhost:8080/callback/',
-    audience: 'https://briangoncalvessample.auth0.com/userinfo',
+    audience: 'http://localhost:22200/GameLibraryAPI',
     responseType: 'token id_token',
     scope: 'openid profile'
   });

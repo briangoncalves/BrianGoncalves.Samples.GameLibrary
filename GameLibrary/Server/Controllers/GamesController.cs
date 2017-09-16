@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Server.Controllers
 {
@@ -24,12 +23,25 @@ namespace Server.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         public IEnumerable<Models.Game> GetAll()
         {
-            return _context.Games.ToList();
+            return _context.Games.OrderBy(x => x.Name).ToList();
         }
 
+        [Authorize]
+        [HttpPost("GetByFilter")]
+        public IEnumerable<Models.Game> GetAllByFilter([FromBody] Models.Game item)
+        {
+            return _context.Games.Where(x => (x.Name.Contains(item.Name) || String.IsNullOrEmpty(item.Name))
+            && (x.Publisher.Contains(item.Publisher) || String.IsNullOrEmpty(item.Publisher))
+            && (x.Category.Contains(item.Category) || String.IsNullOrEmpty(item.Category))
+            )
+                .OrderBy(x => x.Name).ToList();
+        }
+
+        [Authorize]
         [HttpGet("{id}", Name = "GetGame")]
         public IActionResult GetById(long id)
         {
@@ -41,6 +53,7 @@ namespace Server.Controllers
             return new ObjectResult(item);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create([FromBody] Models.Game item)
         {
@@ -55,6 +68,7 @@ namespace Server.Controllers
             return CreatedAtRoute("GetGame", new { id = item.Id }, item);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Update(long id, [FromBody] Models.Game item)
         {
@@ -78,6 +92,7 @@ namespace Server.Controllers
             return new NoContentResult();
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {

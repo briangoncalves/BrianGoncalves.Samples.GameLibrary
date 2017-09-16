@@ -45,7 +45,7 @@ export default {
   props: ['auth'],
   data () {
     this.authenticated = this.auth.isAuthenticated()
-    if (!this.authenticated) this.$router.push('games')
+    if (!this.authenticated) this.$router.push('home')
     if (this.$route.params.Id > 0) {
       HTTP.get('games/' + this.$route.params.Id)
         .then(response => {

@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Server
 {
@@ -34,6 +36,7 @@ namespace Server
                 opt.UseNpgsql(connectionString, b => b.MigrationsAssembly("GameLibrary"));
             });
 
+            // Add cross domain calls
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -42,8 +45,7 @@ namespace Server
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
-
-            // Add framework services.
+            
             services.AddMvc().AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
@@ -55,7 +57,15 @@ namespace Server
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            app.UseDeveloperExceptionPage();
 
+            var options = new JwtBearerOptions
+            {
+                Audience = Configuration["Auth0:ApiIdentifier"],
+                Authority = $"https://{Configuration["Auth0:Domain"]}/"
+            };
+
+            app.UseJwtBearerAuthentication(options);
             app.UseCors("CorsPolicy");
             app.UseMvc();
         }
